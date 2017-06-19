@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
-    "type": "git"
+    "type": "git",
+    "url": "https://github.com/arnog/sutro-jsdoc-theme.git
   },
   "author": {
     "name": "Arno Gourdol",
@@ -20,7 +21,7 @@
     }
   ],
   "bugs": {
-
+    "url": "https://github.com/arnog/sutro-jsdoc-theme/issues"
   },
   "homepage": "https://github.com/hungluu2106/namis",
   "directories": {},
