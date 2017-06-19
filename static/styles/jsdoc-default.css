@@ -316,6 +316,11 @@ footer {
   color: #4D4E53;
 }
 
+/* Prevent collapse of empty <code></code> */
+.prettyprint code:empty:before {
+  content: '';
+}
+
 .prettyprint > code {
   padding: 15px
 }
@@ -588,3 +593,33 @@ dl.param-type {
     margin-left: 0;
   }
 }
+
+@media only print {
+  html {
+    font-size: 11px !important;
+  }
+  body {
+    font-size: 8px !important;
+  }
+  section[role="navigation"] {
+    display: none;
+  }
+
+  tt, code, kbd, samp {
+    font-size: 11px !important;
+  }
+  
+.member p, .method p {
+  font-size: 8px !important;
+  line-height: 11px !important;
+}
+
+  #main {
+    float: none;
+    left: 0        !important;
+    width: 100%   !important;
+    max-width: 100vw;
+    background: transparent !important;
+  }
+}
+

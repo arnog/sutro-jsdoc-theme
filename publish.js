@@ -290,7 +290,7 @@ function attachModuleSymbols(doclets, modules) {
 function buildMemberNav(items, itemHeading, itemsSeen, linktoFn) {
     var nav = '';
 
-    if (items.length) {
+    if (items && items.length) {
         var itemsNav = '';
 
         items.forEach(function(item) {
@@ -371,13 +371,13 @@ function buildNav(members) {
     // supports search
     nav += '<div class="list">';
 
+    nav += buildMemberNav(members.tutorials, 'Tutorials', seenTutorials, linktoTutorial);
     nav += buildMemberNav(members.classes, 'Classes', seen, linkto);
     nav += buildMemberNav(members.modules, 'Modules', {}, linkto);
     nav += buildMemberNav(members.externals, 'Externals', seen, linktoExternal);
     nav += buildMemberNav(members.events, 'Events', seen, linkto);
     nav += buildMemberNav(members.namespaces, 'Namespaces', seen, linkto);
     nav += buildMemberNav(members.mixins, 'Mixins', seen, linkto);
-    nav += buildMemberNav(members.tutorials, 'Tutorials', seenTutorials, linktoTutorial);
     nav += buildMemberNav(members.interfaces, 'Interfaces', seen, linkto);
 
     if (members.globals.length) {
@@ -393,10 +393,10 @@ function buildNav(members) {
         if (!globalNav) {
             // turn the heading into a link so you can actually get to the global page
             // @https://github.com/jsdoc3/jsdoc/blob/master/lib/jsdoc/util/templateHelper.js#L365
-            nav += '<h3>' + linkto('global', 'Global') + '</h3>';
+            nav += '<h3>' + linkto('global', 'Globals') + '</h3>';
         }
         else {
-            nav += '<h3>Global</h3><ul>' + globalNav + '</ul>';
+            nav += '<h3>Globals</h3><ul>' + globalNav + '</ul>';
         }
     }
 
@@ -672,7 +672,7 @@ exports.publish = function(taffyData, opts, tutorials) {
     // tutorials can have only one parent so there is no risk for loops
     function saveChildren(node) {
         node.children.forEach(function(child) {
-            generateTutorial('Tutorial: ' + child.title, child, helper.tutorialToUrl(child.name));
+            generateTutorial(child.title, child, helper.tutorialToUrl(child.name));
             saveChildren(child);
         });
     }
