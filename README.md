@@ -53,18 +53,23 @@ You can customize the template in your `jsdoc.conf.json` file:
         "forkme": "https://github.com/arnog/mathlive"
     },
     "opts": {
-        "access": "all",        //  use "public" to ommit the private symbols
+        "access": "all",
         "template": "node_modules/sutro-jsdoc-theme",
-        "encoding": "utf8",               // same as -e utf8
-        "recurse": true,                  // same as -r
+        "recurse": true,
         "destination": "./docs",
-        "readme": "CONTRIBUTOR_GUIDE.md", // this will be displayed as the "home pagfe" of the documentation
-        "sort": false
+        "readme": "CONTRIBUTOR_GUIDE.md"
     }
 }
 ```
 
-The following keys in the `templates` section are specific to Sutro:
+The keys in the `opts` section are defined by JSDoc:
+- `access`: only display symbols with the given access property: `private`, 
+`protected`, `public`, `undefined` or `all`.
+- `recurse`: when scanning for source files and tutorials, recurse directories.
+- `destination`: path to the output folder for the generated documentation
+- `readme`: the file to include in the generated documentation as the "home page"
+
+The  keys in the `templates` section are specific to Sutro:
 - `cleverLinks` 
 - `monospaceLinks`
 - `outputSourceFiles`: if `true`, include prettyfied source files in
