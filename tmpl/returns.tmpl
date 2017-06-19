@@ -1,0 +1,15 @@
+<?js
+var data = obj || {};
+if (data.description || (data.type && data.type.names)) {
+?>
+<span class="param-desc">
+    <?js if (data.type && data.type.names) {?>
+        <?js= this.partial('type.tmpl', data.type.names) ?>
+        &nbsp;&nbsp;
+    <?js } ?>
+    <?js if (data.description) { ?>
+        <?js= description ?>
+    <?js } ?>
+</span>
+<?js } ?>
+

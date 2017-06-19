@@ -1,0 +1,50 @@
+{
+  "name": "sutro-jsdoc-theme",
+  "version": "0.0.1",
+  "description": "JSDoc theme based on Namis, based Minami",
+  "main": "publish.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git"
+  },
+  "author": {
+    "name": "Arno Gourdol",
+    "email": "arno@arno.org"
+  },
+  "licenses": [
+    {
+      "type": "Apache-2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0"
+    }
+  ],
+  "bugs": {
+
+  },
+  "homepage": "https://github.com/hungluu2106/namis",
+  "directories": {},
+  "keywords": [
+    "jsdocs",
+    "jsdoc",
+    "theme",
+    "template",
+    "themeable",
+    "clean",
+    "nice",
+    "search",
+    "engine",
+    "responsive"
+  ],
+  "license": "Apache-2.0",
+  "contributors": [
+    {
+      "name": "Hung Luu",
+      "email": "luuhug@gmail.com"
+    },
+    {
+      "name": "Nijiko Yonskai",
+      "email": "nijikokun@gmail.com"
+    }
+  ],
+}
