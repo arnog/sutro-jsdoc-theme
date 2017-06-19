@@ -2,29 +2,11 @@
   "name": "sutro-jsdoc-theme",
   "version": "0.0.1",
   "description": "JSDoc theme based on Namis, based Minami",
-  "main": "publish.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "license": "Apache-2.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/arnog/sutro-jsdoc-theme.git"
   },
-  "author": {
-    "name": "Arno Gourdol",
-    "email": "arno@arno.org"
-  },
-  "licenses": [
-    {
-      "type": "Apache-2.0",
-      "url": "http://www.apache.org/licenses/LICENSE-2.0"
-    }
-  ],
-  "bugs": {
-    "url": "https://github.com/arnog/sutro-jsdoc-theme/issues"
-  },
-  "homepage": "https://github.com/hungluu2106/namis",
-  "directories": {},
   "keywords": [
     "jsdocs",
     "jsdoc",
@@ -37,7 +19,12 @@
     "engine",
     "responsive"
   ],
-  "license": "Apache-2.0",
+  "main": "publish.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Arno Gourdol <arno@arno.org>",
+  "bugs": "https://github.com/arnog/sutro-jsdoc-theme/issues",
   "contributors": [
     {
       "name": "Hung Luu",
@@ -47,5 +34,5 @@
       "name": "Nijiko Yonskai",
       "email": "nijikokun@gmail.com"
     }
-  ],
+  ]
 }
