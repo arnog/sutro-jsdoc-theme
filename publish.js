@@ -118,7 +118,9 @@ function buildAttribsString(attribs) {
     var attribsString = '';
 
     if (attribs && attribs.length) {
-        attribsString = htmlsafe( util.format('(%s) ', attribs.join(', ')) );
+        attribsString = '<span class="attrib">';
+        attribsString += attribs.join('</span><span class="attrib">');
+        attribsString += '</span>';
     }
 
     return attribsString;

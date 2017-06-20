@@ -138,8 +138,9 @@ a, a:active {
 }
 tt, code, kbd, samp {
 	font-family: 'Source Code Pro', monospace;
-	font-size: 0.875rem;
-  	background: #fdfdfd;
+	font-size: 0.8rem;
+  	background: rgba(128, 128, 128, .07);
+	border: 1px solid rgba(0, 0, 0, .07);
 }
 .details {
 	font-size: .85em;
@@ -166,6 +167,8 @@ tt, code, kbd, samp {
 	margin-bottom: 5px;
 	line-height: 20px;
 	font-size: 14px;
+	background: transparent;
+	border: none;
 }
 .attributes span.attribute {
 	display: inline;
