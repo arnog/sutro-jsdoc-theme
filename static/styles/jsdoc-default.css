@@ -93,11 +93,12 @@ tt, code, kbd, samp {
     float: right;
     border: 1px solid #ddd;
     border-radius: 3px;
+    margin-left: 5px;
     padding-right: 4px;
     padding-left: 4px;
     font-size: .85em;
     background: #f4f4f4;
-    color: #999
+    color: #999;
 }
 
 .class-description {
