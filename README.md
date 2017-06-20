@@ -75,13 +75,19 @@ The  keys in the `templates` section are specific to Sutro:
 - `outputSourceFiles`: if `true`, include prettyfied source files in
 the documentation
 - `linenums`: if `true`, include line numbers in prettyfied output
+- `sourceCodeTheme`: the color scheme used for the prettyfied source code:
+`dark` or `light`
+- `sourceCodeBackground`: a CSS background shorthand describing the background
+used to display source code. Defaults to dark or light color depending on 
+`sourceCodeTheme`.
 - `includeDate`: if `true`, include date of documentation creation 
 in footer
 - `title`: name of the "home" link, at the top left of the page
 - `pageTitle`: value of the `<title>` tag
 - `description`: value of the `<description>` tag
 - `keywords`: value of the `<keywords>` tag
-- `forkme`: if present, display a "Fork Me" banner, with a URL pointing to the value of this entry
+- `forkme`: if present, display a "Fork Me" banner, with a URL pointing to the 
+value of this entry
 
 ## License
 

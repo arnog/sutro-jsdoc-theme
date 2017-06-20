@@ -1,8 +1,14 @@
 <?js
     var data = obj;
+    var cls = "prettyprint source";
+    if(env.conf.templates && env.conf.templates && env.conf.templates.linenums) {
+        cls = "prettyprint source linenums"
+    }
 ?>
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code><?js= data.code ?></code></pre>
+            <pre class="<?js= cls ?>">
+            
+            <code><?js= data.code ?></code></pre>
         </article>
     </section>
