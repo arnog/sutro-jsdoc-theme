@@ -1,8 +1,12 @@
 <?js
 var data = obj;
 var self = this;
+var cls = 'method';
+if (data.attribs.indexOf('private') !== -1) {
+    cls += ' private';
+}
 ?>
-<div class='method'>
+<div class='<?js= cls ?>'>
 <?js if (data.kind !== 'module') { ?>
     <?js if (data.kind === 'class' && data.classdesc) { ?>
     <h2>Constructor</h2>

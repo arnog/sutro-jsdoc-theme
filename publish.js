@@ -297,22 +297,28 @@ function buildMemberNav(items, itemHeading, itemsSeen, linktoFn) {
 
         items.forEach(function(item) {
             var methods = find({kind:'function', memberof: item.longname});
-            var members = find({kind:'member', memberof: item.longname});
+            // var members = find({kind:'member', memberof: item.longname});
+            var isPrivate = item.attribs && item.attribs.indexOf('private') !== -1;
 
             if ( !hasOwnProp.call(item, 'longname') ) {
                 // @ref https://github.com/jsdoc3/jsdoc/blob/master/lib/jsdoc/util/templateHelper.js#L365
-                itemsNav += '<li>' + linktoFn('', item.name, 'className');
+                itemsNav += '<li' + (isPrivate ? ' class="private"' : '') + '>' + linktoFn('', item.name, 'className');
                 itemsNav += '</li>';
             } else if ( !hasOwnProp.call(itemsSeen, item.longname) ) {
                 // @ref https://github.com/jsdoc3/jsdoc/blob/master/lib/jsdoc/util/templateHelper.js#L365
-                itemsNav += '<li>' + linktoFn(item.longname, item.name.replace(/^module:/, ''), 'className');
+                itemsNav += '<li' + (isPrivate ? ' class="private"' : '') + '>' + linktoFn(item.longname, item.name.replace(/^module:/, ''), 'className');
                 if (methods.length) {
-                    itemsNav += "<ul class='methods'>";
+                    itemsNav += "<ul class='methods" + (isPrivate ? ' private' : '') + "'>";
 
                     methods.forEach(function (method) {
                         // remove all inherited methods
                         if(!method.inherits || method.override){
-                            itemsNav += "<li data-type='method'>";
+                            var isMethodPrivate = isPrivate || method.attribs && method.attribs.indexOf('private') !== -1;
+                            itemsNav += "<li data-type='method'";
+                            if (isMethodPrivate) {
+                                itemsNav += " class='private'"; 
+                            }
+                            itemsNav += ">";
                             // @ref https://github.com/jsdoc3/jsdoc/blob/master/lib/jsdoc/util/templateHelper.js#L365
                             itemsNav += linkto(method.longname, method.name, 'methodName');
                             itemsNav += "</li>";
@@ -365,7 +371,6 @@ function buildNav(members) {
 
     nav += '<input class="search" placeholder="Search" type="text">';
 
-//    nav += '<label class="checkbox"><input class="toggle-private" type="checkbox">Include Private</input></label>';
 
     var seen = {};
     var seenTutorials = {};
@@ -401,6 +406,28 @@ function buildNav(members) {
             nav += '<h3>Globals</h3><ul>' + globalNav + '</ul>';
         }
     }
+
+
+   nav += '<label class="checkbox">';
+   nav += '<input id="toggle-private" type="checkbox" onclick="';
+   nav += '\n';
+   nav += 'if (!document.getElementById(\'toggle-private\').checked) {'
+   nav += '\n';
+   nav += 'document.documentElement.classList.add(\'no-private\')';
+   nav += '\n';
+   nav += 'writeCookie(\'symbol-access\', \'no-private\')';
+   nav += '\n';
+   nav += '} else {';
+   nav += '\n';
+   nav += 'document.documentElement.classList.remove(\'no-private\')';
+   nav += '\n';
+   nav += 'writeCookie(\'symbol-access\', \'private\')';
+   nav += '\n';
+   nav += '}';
+   nav += '\n';
+   nav += '">';
+   nav += 'Include Private Symbols';
+   nav += '</input></label>';
 
     nav += '</div>';
 
