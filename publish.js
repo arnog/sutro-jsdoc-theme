@@ -93,6 +93,11 @@ function updateItemName(item) {
             attributes.join(', ') );
     }
 
+    var typeString = buildItemTypeStrings(item);
+    if (typeString) {
+        itemName = util.format('%s<span class="signature-type">: %s</span>', itemName, typeString);
+    }
+
     return itemName;
 }
 
@@ -166,7 +171,7 @@ function addSignatureReturns(f) {
         returnTypes = addNonParamAttributes(f.returns);
     }
     if (returnTypes.length) {
-        returnTypesString = util.format( ' &rarr; %s{%s}', attribsString, returnTypes.join('|') );
+        returnTypesString = util.format( ' &rarr; %s %s', attribsString, returnTypes.join('|') );
     }
 
     f.signature = '<span class="signature">' + (f.signature || '') + '</span>' +
@@ -177,7 +182,7 @@ function addSignatureTypes(f) {
     var types = f.type ? buildItemTypeStrings(f) : [];
 
     f.signature = (f.signature || '') + '<span class="type-signature">' +
-        (types.length ? ' :' + types.join('|') : '') + '</span>';
+        (types.length ? ' &rarr;' + types.join('|') : '') + '</span>';
 }
 
 function addAttribs(f) {
@@ -298,7 +303,8 @@ function buildMemberNav(items, itemHeading, itemsSeen, linktoFn) {
         items.forEach(function(item) {
             var methods = find({kind:'function', memberof: item.longname});
             // var members = find({kind:'member', memberof: item.longname});
-            var isPrivate = item.attribs && item.attribs.indexOf('private') !== -1;
+            var isPrivate = (item.attribs && item.attribs.indexOf('private') !== -1) ||
+                (item.access === 'private') ;
 
             if ( !hasOwnProp.call(item, 'longname') ) {
                 // @ref https://github.com/jsdoc3/jsdoc/blob/master/lib/jsdoc/util/templateHelper.js#L365
@@ -364,9 +370,9 @@ function linktoExternal(longName, name) {
  */
 function buildNav(members) {
     //var nav = '<h2><a href="index.html">Home</a></h2>';
-    var nav = '<h3 class="group-title"><a href="index.html">&#x3C; Home &#x3E;</a></h3>';
+    var nav = '<h3 class="group-title home"><a href="index.html">&#x3C; Home &#x3E;</a></h3>';
     if(env.conf.templates && env.conf.templates && env.conf.templates.title) {
-        nav = '<h3 class="group-title"><a href="index.html">' + env.conf.templates.title + '</a></h3>';
+        nav = '<h3 class="group-title home"><a href="index.html">' + env.conf.templates.title + '</a></h3>';
     }
 
     nav += '<input class="search" placeholder="Search" type="text">';
