@@ -194,9 +194,10 @@ a, a:active {
 }
 tt, code, kbd, samp {
 	font-family: 'Source Code Pro', monospace;
-	font-size: 0.8rem;
-  	background: rgba(128, 128, 128, .07);
-	border: 1px solid rgba(0, 0, 0, .07);
+	font-size: 0.8em;
+  	background: rgba(128, 128, 128, .05);
+	color: #222;
+	border: 1px solid rgba(0, 0, 0, .08);
 }
 .details {
 	font-size: .85em;
@@ -205,8 +206,10 @@ tt, code, kbd, samp {
 }
 .param-type {
 	font-family: 'Source Code Pro', monospace;
-	font-size: 11.844px;
-	background-color: #eee;
+	/*font-size: 11.844px;*/
+	font-size: 0.8em;
+  	background: rgba(128, 128, 128, .05);
+	border: 1px solid rgba(0, 0, 0, .08);
 	color: #222;
 	text-shadow: none;
 	padding: 4px 7px;
