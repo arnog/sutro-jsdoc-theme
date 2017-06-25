@@ -385,13 +385,13 @@ function buildNav(members) {
     nav += '<div class="list">';
 
     nav += buildMemberNav(members.tutorials, 'Tutorials', seenTutorials, linktoTutorial);
-    nav += buildMemberNav(members.classes, 'Classes', seen, linkto);
     nav += buildMemberNav(members.modules, 'Modules', {}, linkto);
-    nav += buildMemberNav(members.externals, 'Externals', seen, linktoExternal);
-    nav += buildMemberNav(members.events, 'Events', seen, linkto);
     nav += buildMemberNav(members.namespaces, 'Namespaces', seen, linkto);
+    nav += buildMemberNav(members.classes, 'Classes', seen, linkto);
+    nav += buildMemberNav(members.externals, 'Externals', seen, linktoExternal);
     nav += buildMemberNav(members.mixins, 'Mixins', seen, linkto);
     nav += buildMemberNav(members.interfaces, 'Interfaces', seen, linkto);
+    nav += buildMemberNav(members.events, 'Events', seen, linkto);
 
     if (members.globals.length) {
         var globalNav = '';
@@ -413,8 +413,7 @@ function buildNav(members) {
         }
     }
 
-
-   nav += '<label class="checkbox">';
+   nav += '<div class="checkbox">';
    nav += '<input id="toggle-private" type="checkbox" onclick="';
    nav += '\n';
    nav += 'if (!document.getElementById(\'toggle-private\').checked) {'
@@ -432,8 +431,10 @@ function buildNav(members) {
    nav += '}';
    nav += '\n';
    nav += '">';
+   nav += '<label for="toggle-private">';
    nav += 'Include Private Symbols';
-   nav += '</input></label>';
+   nav += '</label>';
+   nav += '</div>';
 
     nav += '</div>';
 
