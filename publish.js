@@ -313,6 +313,15 @@ function buildMemberNav(items, itemHeading, itemsSeen, linktoFn) {
             } else if ( !hasOwnProp.call(itemsSeen, item.longname) ) {
                 // @ref https://github.com/jsdoc3/jsdoc/blob/master/lib/jsdoc/util/templateHelper.js#L365
                 itemsNav += '<li' + (isPrivate ? ' class="private"' : '') + '>' + linktoFn(item.longname, item.name.replace(/^module:/, ''), 'className');
+
+                if (itemHeading === 'Tutorials' && item.children) {
+                    itemsNav += '<ul>';
+                    item.children.forEach(function(t) {
+                        itemsNav += '<li>' + tutoriallink(t.name) + '</li>';
+                    });
+                    itemsNav += '</ul>';
+                }
+
                 if (methods.length) {
                     itemsNav += "<ul class='methods" + (isPrivate ? ' private' : '') + "'>";
 

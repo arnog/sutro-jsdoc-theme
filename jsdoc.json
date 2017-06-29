@@ -15,15 +15,20 @@
         "cleverLinks": true,
         "monospaceLinks": true,
         "systemName": "remoteFileExplorer",
-        "copyright": "2015",
+        "copyright": "2017",
         "linenums": true,
         "collapseSymbols": true
+    },
+    "markdown"  : {
+        "parser"        : "gfm",
+        "hardwrap"      : true,
+        "idInHeadings"  : true
     },
     "opts": {
         "destination": "./docs/",
         "encoding": "utf8",
         "private": false,
         "recurse": true,
-        "template": "./node_modules/sutro-jsdoc-theme"
+        "template": "x./node_modules/sutro-jsdoc-theme"
     }
 }
