@@ -88,6 +88,9 @@ in footer
 - `keywords`: value of the `<keywords>` tag
 - `forkme`: if present, display a "Fork Me" banner, with a URL pointing to the 
 value of this entry
+- `headerAddendum` and `bodyAddendum`: if present the content will be inserted 
+in the template in the header and just before end the end body tag, 
+respectively. This can be useful to add additional scripts in the template.
 
 ## License
 

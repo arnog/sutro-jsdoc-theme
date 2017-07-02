@@ -21,7 +21,7 @@
     },
     "markdown"  : {
         "parser"        : "gfm",
-        "hardwrap"      : true,
+        "hardwrap"      : false,
         "idInHeadings"  : true
     },
     "opts": {
@@ -29,6 +29,6 @@
         "encoding": "utf8",
         "private": false,
         "recurse": true,
-        "template": "x./node_modules/sutro-jsdoc-theme"
+        "template": "./node_modules/sutro-jsdoc-theme"
     }
 }
