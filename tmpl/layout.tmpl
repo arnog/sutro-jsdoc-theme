@@ -97,7 +97,7 @@
     }
 
     var cookie = readCookie('symbol-access');
-    if (cookie === 'no-private') {
+    if (!cookie || cookie === 'no-private') {
         document.documentElement.classList.add('no-private');
     }
     
