@@ -67,14 +67,14 @@ function getSignatureAttributes(item) {
     var attributes = [];
 
     if (item.optional) {
-        attributes.push('opt');
+        attributes.push('?');
     }
 
     if (item.nullable === true) {
-        attributes.push('nullable');
+        attributes.push('nullable');        // Note: there are no nullable types in JS
     }
     else if (item.nullable === false) {
-        attributes.push('non-null');
+        attributes.push('!');               // In JS (well, TS), this indicates a non-null value
     }
 
     return attributes;
@@ -95,7 +95,7 @@ function updateItemName(item) {
 
     var typeString = buildItemTypeStrings(item);
     if (typeString) {
-        itemName = util.format('%s<span class="signature-type">: %s</span>', itemName, typeString);
+        itemName = util.format('%s<span class="signature-type">: %s</span>', itemName, typeString.join(" | "));
     }
 
     return itemName;
@@ -171,7 +171,7 @@ function addSignatureReturns(f) {
         returnTypes = addNonParamAttributes(f.returns);
     }
     if (returnTypes.length) {
-        returnTypesString = util.format( ' &rarr; %s %s', attribsString, returnTypes.join('|') );
+        returnTypesString = util.format( ': %s %s', attribsString, returnTypes.join(' | ') );
     }
 
     f.signature = '<span class="signature">' + (f.signature || '') + '</span>' +
@@ -622,7 +622,7 @@ exports.publish = function(taffyData, opts, tutorials) {
     members.tutorials = tutorials.children;
 
     // output pretty-printed source files by default
-    var outputSourceFiles = conf.default && conf.default.outputSourceFiles !== false
+    var outputSourceFiles = opts && opts.outputSourceFiles !== false
         ? true
         : false;
 

@@ -43,7 +43,6 @@ You can customize the template in your `jsdoc.conf.json` file:
     "templates": {
         "cleverLinks": false,
         "monospaceLinks": false,
-        "outputSourceFiles": true,
         "linenums": true,
         "includeDate": false,
         "title": "MathLive",
@@ -53,6 +52,7 @@ You can customize the template in your `jsdoc.conf.json` file:
         "forkme": "https://github.com/arnog/mathlive"
     },
     "opts": {
+        "outputSourceFiles": true,
         "access": "all",
         "template": "node_modules/sutro-jsdoc-theme",
         "recurse": true,
@@ -68,11 +68,11 @@ The keys in the `opts` section are defined by JSDoc:
 - `recurse`: when scanning for source files and tutorials, recurse directories.
 - `destination`: path to the output folder for the generated documentation
 - `readme`: the file to include in the generated documentation as the "home page"
+- `outputSourceFiles`: if `true`, include prettyfied source files in
 
 The  keys in the `templates` section are specific to Sutro:
 - `cleverLinks` 
 - `monospaceLinks`
-- `outputSourceFiles`: if `true`, include prettyfied source files in
 the documentation
 - `linenums`: if `true`, include line numbers in prettyfied output
 - `sourceCodeTheme`: the color scheme used for the prettyfied source code:
