@@ -84,6 +84,7 @@ function updateItemName(item) {
     var attributes = getSignatureAttributes(item);
     var itemName = item.name || '';
 
+
     if (item.variable) {
         itemName = '&hellip;' + itemName;
     }
@@ -112,6 +113,9 @@ function buildItemTypeStrings(item) {
 
     if (item && item.type && item.type.names) {
         item.type.names.forEach(function(name) {
+            name = name.replace(/Array\.<([a-zA-Z]*)>/, '$1[]');
+            name = name.replace(/Object\.<([a-zA-Z]*), ([a-zA-Z]*)>/, '[$1]:$2');
+            name = name.replace(/Object\.<([a-zA-Z]*)>/, '[$1]');
             types.push( linkto(name, htmlsafe(name)) );
         });
     }

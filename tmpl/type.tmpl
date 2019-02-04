@@ -4,7 +4,12 @@
     if (data.length > 0) {
         ?>: <?js
     }
-    data.forEach(function(name, i) { ?>
-<span class="param-type"><?js= self.linkto(name, self.htmlsafe(name)) ?></span>
+    data.forEach(function(name, i) { 
+        name = name.replace(/Array\.<([a-zA-Z]*)>/, '$1[]');
+        name = name.replace(/Object\.<([a-zA-Z]*), ([a-zA-Z]*)>/, '[$1]:$2');
+        name = name.replace(/Object\.<([a-zA-Z]*)>/, '[$1]');
+?>
+<span class="param-type"><?js= 
+    self.linkto(name, self.htmlsafe(name)) ?></span>
 <?js if (i < data.length-1) { ?>|<?js } ?>
 <?js }); ?>
